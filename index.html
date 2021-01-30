@@ -168,10 +168,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-01-29 21:42:22 / Modified: 22:37:01" itemprop="dateCreated datePublished" datetime="2021-01-29T21:42:22+08:00">2021-01-29</time>
+              <time title="Created: 2021-01-29 21:42:22" itemprop="dateCreated datePublished" datetime="2021-01-29T21:42:22+08:00">2021-01-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-30 14:52:54" itemprop="dateModified" datetime="2021-01-30T14:52:54+08:00">2021-01-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -195,60 +201,14 @@
       
           <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>指令系统体现了机器的属性，属于计算机结构的问题；</p>
 <p>但指令的实现，即如何取指令、分析指令、取操作数、运算、送结果等，属于计算机组成的问题。</p>
-<h2 id="计算机基本组成"><a href="#计算机基本组成" class="headerlink" title="计算机基本组成"></a>计算机基本组成</h2><ol>
-<li><p>冯诺依曼计算机——以运算器为中心</p>
-</li>
-<li><p>现代计算机——以存储器为中心<br><img src="ch01_01.png"></p>
-<ul>
-<li>运算器：算术运算和逻辑运算，并将运算的中间结果暂存在运算器内；</li>
-<li>存储器：存放数据和程序；</li>
-<li>控制器：控制、指挥程序和数据的输入、运行以及处理运算结果；</li>
-<li>输入设备：将人们熟悉的信息形式转换为机器能识别的信息形式；</li>
-<li>输出设备：将机器运算结果转换为人们熟悉的信息形式。</li>
-</ul>
-</li>
-<li><p>现代计算机可认为由三大部分组成<br><img src="ch01_02.png"></p>
-</li>
-<li><p>细化的计算机组成框图<br><img src="ch01_03.png"></p>
-</li>
-<li><p>主存储器</p>
-<ol>
-<li>一个存储体由n个存储单元组成，一个存储单元包含k个存储元件；</li>
-<li>每个存储元件寄存1位二进制代码：0或1；</li>
-<li>一个存储单元可存储一串k位二进制代码，称这串二进制代码为一个存储字，k为存储字长；</li>
-<li>k通常为8/16/32等；</li>
-<li>每个存储单元都有一个编号，称为存储单元的地址号；指令和数据都由存储单元地址号反映，因此，取一条指令和取一个数据的操作可视为相同；</li>
-<li>MAR: 存储器地址寄存器，存放欲访问的存储单元的地址，其位数对应存储单元的个数（MAR为10位，则有2^10 = 1 024个存储单元，记为1K）；</li>
-<li>MDR: 存储器数据寄存器，存放从存储体某单元取出的代码或准备往某存储单元存入的代码，其位数与存储字长相等；</li>
-<li>1 指令字长/数据字长 = n 字节 = 8n 位二进制代码。</li>
-</ol>
-</li>
-<li><p>运算器</p>
-<p>运算器至少包括3个寄存器和一个算术逻辑单元（ALU）</p>
-<ol>
-<li>ACC 累加器</li>
-<li>MQ 乘商寄存器</li>
-<li>X 操作数寄存器</li>
-</ol>
-</li>
-<li><p>控制器</p>
-<p>工作过程：取指（命令存储器读出一条指令）-&gt;分析（对该指令分析，指出操作并指明操作数的地址）-&gt;执行（根据操作数所在地址以及指令的操作码完成某种操作）</p>
-<p>组成部分：</p>
-<ul>
-<li>控制器 PC：存放当前欲执行指令的地址</li>
-<li>指令寄存器 IR：存放当前的指令，其内容来自MDR。IR中的操作码（OP(IR)）送至CU，记作 OP(IR)-&gt;CU，用于分析指令；其他地址码（Ad(IR)）作为操作数的地址送至存储器的MAR，记作 Ad(IR)-&gt;MAR</li>
-<li>控制单元 CU：分析当前的指令所需要完成的操作，并发出各种微操作命令序列，用以控制所有被控对象</li>
-</ul>
-</li>
-<li><p>I/O：每一种I/O设备都由I/O接口与主机联系，它接收CU发出的各种控制命令，并完成相应的操作</p>
-</li>
-</ol>
-<h2 id="计算机硬件的主要技术指标"><a href="#计算机硬件的主要技术指标" class="headerlink" title="计算机硬件的主要技术指标"></a>计算机硬件的主要技术指标</h2><ol>
-<li>机器字长：CPU一次能处理数据的位数</li>
-<li>存储容量：主存容量位主存中存放二进制代码的总位数，即：存储容量 = 存储单元个数 * 存储字长；现代计算机中常以字节数描述容量大小，如：2M 位 = 2^21 位 = 2^21 / 2^3 字节 = 2^18 字节 = 256KB；辅存容量也常用字节数表示</li>
-<li>运算速度：MIPS（百万条指令每秒）/CPI（执行一条指令所需时钟周期）/FLOPS（浮点运算次数每秒）</li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86Ch01/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -338,78 +298,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/25/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chaofan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chaofan">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/25/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-25 15:30:23" itemprop="dateCreated datePublished" datetime="2021-01-25T15:30:23+08:00">2021-01-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-27 18:54:48" itemprop="dateModified" datetime="2021-01-27T18:54:48+08:00">2021-01-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/25/hello-world/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
 
@@ -476,7 +364,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
